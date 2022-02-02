@@ -14,10 +14,10 @@ if(platform.node()=="LAPTOP-MEFC1PDG"):
     # lmk_logs_path = "./lmk_logs"
     # images_path = "./images" 
 else:
-    xmlfilepath = "./source/cats"
+    xmlfilepath = "/content/drive/MyDrive/pet_face_yolo/data/Annotations"
     txtsavepath = "./data/ImageSets"
     labelPath = "./data/labels"
-    imgPath = "./data/images"
+    imgPath = "/content/drive/MyDrive/pet_face_yolo/data/images"
     # dataset_path = "./dataset"
     # model_path = "/content/drive/MyDrive/PET_FACE/models"
     # result_path = "/content/drive/MyDrive/PET_FACE/result"
@@ -29,6 +29,7 @@ else:
 # shutil.rmtree(logs_path,ignore_errors=True)
 # shutil.rmtree(lmk_logs_path,ignore_errors=True)
 
-# Path(xmlfilepath).mkdir(parents=True, exist_ok=True)
-# Path(txtsavepath).mkdir(parents=True, exist_ok=True)
-# Path(labelPath).mkdir(parents=True, exist_ok=True)
+Path(xmlfilepath).mkdir(parents=True, exist_ok=True)
+Path(txtsavepath).mkdir(parents=True, exist_ok=True)
+Path(labelPath).mkdir(parents=True, exist_ok=True)
+Path(imgPath).mkdir(parents=True, exist_ok=True)
