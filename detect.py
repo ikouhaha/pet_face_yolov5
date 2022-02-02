@@ -33,11 +33,6 @@ import cv2
 import torch
 import torch.backends.cudnn as cudnn
 
-FILE = Path(__file__).resolve()
-ROOT = FILE.parents[0]  # YOLOv5 root directory
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
-ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 from models.common import DetectMultiBackend
 from utils.datasets import IMG_FORMATS, VID_FORMATS, LoadImages, LoadStreams
@@ -48,9 +43,9 @@ from utils.torch_utils import select_device, time_sync
 
 
 @torch.no_grad()
-def run(weights=ROOT / 'yolov5l.pt',  # model.pt path(s)
-        source=ROOT / 'data/images',  # file/dir/URL/glob, 0 for webcam
-        data=ROOT / 'data/cat.yaml',  # dataset.yaml path
+def run(weights= './models/yolov5ll.pt',  # model.pt path(s)
+        source='./data/images',  # file/dir/URL/glob, 0 for webcam
+        data='./data/cat.yaml',  # dataset.yaml path
         imgsz=(640, 640),  # inference size (height, width)
         conf_thres=0.25,  # confidence threshold
         iou_thres=0.45,  # NMS IOU threshold
@@ -66,7 +61,7 @@ def run(weights=ROOT / 'yolov5l.pt',  # model.pt path(s)
         augment=False,  # augmented inference
         visualize=False,  # visualize features
         update=False,  # update all models
-        project=ROOT / 'runs/detect',  # save results to project/name
+        project='./runs/detect',  # save results to project/name
         name='exp',  # save results to project/name
         exist_ok=False,  # existing project/name ok, do not increment
         line_thickness=3,  # bounding box thickness (pixels)
@@ -215,9 +210,9 @@ def run(weights=ROOT / 'yolov5l.pt',  # model.pt path(s)
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'yolov5s.pt', help='model path(s)')
-    parser.add_argument('--source', type=str, default=ROOT / 'data/images', help='file/dir/URL/glob, 0 for webcam')
-    parser.add_argument('--data', type=str, default=ROOT / 'data/coco128.yaml', help='(optional) dataset.yaml path')
+    parser.add_argument('--weights', nargs='+', type=str, default='./models/yolov5l.pt', help='model path(s)')
+    parser.add_argument('--source', type=str, default='./data/images', help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--data', type=str, default='./data/cat.yaml', help='(optional) dataset.yaml path')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
     parser.add_argument('--conf-thres', type=float, default=0.25, help='confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.45, help='NMS IoU threshold')
@@ -233,7 +228,7 @@ def parse_opt():
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--visualize', action='store_true', help='visualize features')
     parser.add_argument('--update', action='store_true', help='update all models')
-    parser.add_argument('--project', default=ROOT / 'runs/detect', help='save results to project/name')
+    parser.add_argument('--project', default= './runs/detect', help='save results to project/name')
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--line-thickness', default=3, type=int, help='bounding box thickness (pixels)')
@@ -243,7 +238,7 @@ def parse_opt():
     parser.add_argument('--dnn', action='store_true', help='use OpenCV DNN for ONNX inference')
     opt = parser.parse_args()
     opt.imgsz *= 2 if len(opt.imgsz) == 1 else 1  # expand
-    print_args(FILE.stem, opt)
+    print_args("detect", opt)
     return opt
 
 
