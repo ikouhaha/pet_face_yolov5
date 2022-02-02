@@ -4,6 +4,8 @@ from package import *
 if(platform.node()=="LAPTOP-MEFC1PDG"):
     xmlfilepath = "./data/Annotations"
     txtsavepath = "./data/ImageSets"
+    labelPath = "./data/labels"
+    imgPath = "./data/images"
     # dataset_path = "./dataset"
     # model_path = "./models"
     # result_path = "./result"
@@ -14,6 +16,8 @@ if(platform.node()=="LAPTOP-MEFC1PDG"):
 else:
     xmlfilepath = "./source/cats"
     txtsavepath = "./data/ImageSets"
+    labelPath = "./data/labels"
+    imgPath = "./data/images"
     # dataset_path = "./dataset"
     # model_path = "/content/drive/MyDrive/PET_FACE/models"
     # result_path = "/content/drive/MyDrive/PET_FACE/result"
@@ -25,5 +29,6 @@ else:
 # shutil.rmtree(logs_path,ignore_errors=True)
 # shutil.rmtree(lmk_logs_path,ignore_errors=True)
 
-Path(xmlfilepath).mkdir(parents=True, exist_ok=True)
-Path(txtsavepath).mkdir(parents=True, exist_ok=True)
+# Path(xmlfilepath).mkdir(parents=True, exist_ok=True)
+# Path(txtsavepath).mkdir(parents=True, exist_ok=True)
+# Path(labelPath).mkdir(parents=True, exist_ok=True)
