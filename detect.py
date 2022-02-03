@@ -210,7 +210,7 @@ def run(weights= './models/yolov5ll.pt',  # model.pt path(s)
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='./models/yolov5l.pt', help='model path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default='./runs/train/exp/weights/best.pt', help='model path(s)')
     parser.add_argument('--source', type=str, default='./data/images', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--data', type=str, default='./data/cat.yaml', help='(optional) dataset.yaml path')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
