@@ -2,12 +2,14 @@
 import errno
 from package import *
 
+
 googlePath = "/content/drive/MyDrive/pet_face_yolo/data"
 xmlfilepath = "data/Annotations"
 txtsavepath = "data/ImageSets"
 labelPath = "data/labels"
 imgPath = "data/images"
 dataPath = "data"
+
 
 
 def createPath():
@@ -36,7 +38,7 @@ def copyanything(src, dst):
         if(not os.path.exists(dst)):
             os.makedirs(dst, exist_ok=True)
             
-        shutil.copytree(src, dst)
+        copy_tree(src, dst)
     except OSError as exc: # python >2.5
         if exc.errno in (errno.ENOTDIR, errno.EINVAL):
             shutil.copy(src, dst)
@@ -49,6 +51,3 @@ def emptyFolder(path):
             continue
         print(file)
         os.remove(file)
-
-if __name__ == "__main__":
-    emptyFolder("C:/Users/ikouh/Documents/pet_face_yolo/runs")
