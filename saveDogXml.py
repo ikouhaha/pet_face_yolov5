@@ -59,7 +59,7 @@ for f in os.listdir(facePathSource):
     continue
 
   if  f.startswith(('Abyssinian', 'Bengal', 'Bombay'
-  ,'British', 'Egyptian', 'Main','Persian','Ragdoll'
+  ,'British', 'Egyptian', 'Main','Persian','Ragdoll', 'Birman'
   ,'Russian','Siamese','Sphynx' 
   )):
     os.remove(facePathSource+"/"+f)
