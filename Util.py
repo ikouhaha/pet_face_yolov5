@@ -31,15 +31,11 @@ def resize_img(im,img_size):
       value=[0, 0, 0])
   return new_im, ratio, top, left  
 
-def copyanything(src, dst,recreate=False):
+def copyanything(src, dst):
     try:
-        if(recreate and os.path.exists(dst)):
-            shutil.rmtree(dst,ignore_errors=True)
-
         if(not os.path.exists(dst)):
             os.makedirs(dst, exist_ok=True)
-
-
+            
         shutil.copytree(src, dst)
     except OSError as exc: # python >2.5
         if exc.errno in (errno.ENOTDIR, errno.EINVAL):
