@@ -1,4 +1,5 @@
 
+import errno
 from package import *
 
 googlePath = "/content/drive/MyDrive/pet_face_yolo/data"
@@ -28,4 +29,30 @@ def resize_img(im,img_size):
   left, right = delta_w // 2, delta_w - (delta_w // 2)
   new_im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT,
       value=[0, 0, 0])
-  return new_im, ratio, top, left      
+  return new_im, ratio, top, left  
+
+def copyanything(src, dst,recreate=False):
+    try:
+        if(recreate and os.path.exists(dst)):
+            shutil.rmtree(dst,ignore_errors=True)
+
+        if(not os.path.exists(dst)):
+            os.makedirs(dst, exist_ok=True)
+
+
+        shutil.copytree(src, dst)
+    except OSError as exc: # python >2.5
+        if exc.errno in (errno.ENOTDIR, errno.EINVAL):
+            shutil.copy(src, dst)
+        else: raise
+
+def emptyFolder(path):
+    files = glob.glob(path+'/**/*', recursive=True)      
+    for file in files:
+        if(os.path.isdir(file)):
+            continue
+        print(file)
+        os.remove(file)
+
+if __name__ == "__main__":
+    emptyFolder("C:/Users/ikouh/Documents/pet_face_yolo/runs")
