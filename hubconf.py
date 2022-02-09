@@ -119,6 +119,10 @@ def yolov5x6(pretrained=True, channels=3, classes=80, autoshape=True, verbose=Tr
     # YOLOv5-xlarge-P6 model https://github.com/ultralytics/yolov5
     return _create('yolov5x6', pretrained, channels, classes, autoshape, verbose, device)
 
+def best(pretrained=True, channels=3, classes=80, autoshape=True, verbose=True, device=None):
+    # YOLOv5-xlarge-P6 model https://github.com/ultralytics/yolov5
+    return _create('best', pretrained, channels, classes, autoshape, verbose, device)
+
 
 if __name__ == '__main__':
     model = _create(name='yolov5s', pretrained=True, channels=3, classes=80, autoshape=True, verbose=True)  # pretrained
