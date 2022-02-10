@@ -48,4 +48,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     model = torch.hub.load('ikouhaha/pet_face_yolov5','custom', path='runs/train/exp/weights/best.pt', force_reload=True)  # force_reload to recache
-    app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
+    app.run(port=args.port)  # debug=True causes Restarting with stat
