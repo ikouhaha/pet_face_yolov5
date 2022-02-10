@@ -14,7 +14,7 @@ import json
 
 app = Flask(__name__)
 
-DETECTION_URL = "/v1/object-detection/yolov5s"
+DETECTION_URL = "/pet_face_detect"
 
 
 @app.route(DETECTION_URL, methods=["POST"])
@@ -34,8 +34,9 @@ def predict():
             response["success"] = True
         else:
             response["success"] = False
-    except:
+    except Exception as e:
        response["success"] = False
+       response["errMsg"] = str(e)
     
 
     return response

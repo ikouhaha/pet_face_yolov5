@@ -7,7 +7,7 @@ import cv2
 
 from utils.plots import Annotator, colors, save_one_box
 
-DETECTION_URL = "http://localhost:5000/v1/object-detection/yolov5s"
+DETECTION_URL = "http://localhost:5000/pet_face_detect"
 TEST_IMAGE = "data\images\WhatsApp Image 2021-10-24 at 15.39.47.jpeg"
 
 image_data = open(TEST_IMAGE, "rb").read()
