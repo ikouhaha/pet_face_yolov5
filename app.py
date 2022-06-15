@@ -12,6 +12,8 @@ import cv2
 import numpy as np
 import json
 
+from models.experimental import attempt_load
+
 app = Flask(__name__)
 
 DETECTION_URL = "/pet_face_detect"
@@ -47,5 +49,4 @@ if __name__ == "__main__":
     parser.add_argument("--port", default=5000, type=int, help="port number")
     args = parser.parse_args()
 
-    model = torch.hub.load('ikouhaha/pet_face_yolov5','custom', path='runs/train/exp/weights/best.pt', force_reload=True)  # force_reload to recache
     app.run(port=args.port)  # debug=True causes Restarting with stat
